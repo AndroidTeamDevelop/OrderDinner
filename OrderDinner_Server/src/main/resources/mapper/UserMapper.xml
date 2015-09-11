@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.andteam.orderdinner.dao.UserDao">
+
+    <resultMap type="User" id="UserMap">
+	    <id property="user_id" column="id"/>
+	    <result property="user_name" column="用户名"/>
+	    <result property="user_tel" column="手机号"/>
+	    <result property="user_pwd" column="密码"/>        
+    </resultMap>
+
+	<insert id="insertUser" parameterType="User" keyProperty="id">
+		INSERT INTO `orderdinner`.`用户` (`用户名`, `密码`, `手机号`) VALUES (#{user_name}, #{user_pwd}, #{user_tel});
+	</insert>
+	
+	<select id="getUserById" parameterType="int" resultMap="UserMap">
+		SELECT `用户`.`id`,
+		    `用户`.`用户名`,
+		    `用户`.`密码`,
+		    `用户`.`手机号`
+		FROM `orderdinner`.`用户` WHERE `用户`.`id` = #{id}
+	</select>
+</mapper>
