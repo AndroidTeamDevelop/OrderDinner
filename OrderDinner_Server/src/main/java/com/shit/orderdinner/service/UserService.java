@@ -1,6 +1,6 @@
-package com.andteam.orderdinner.service;
+package com.shit.orderdinner.service;
 
-import com.andteam.orderdinner.model.User;
+import com.shit.orderdinner.model.User;
 
 public interface UserService {
 	/**

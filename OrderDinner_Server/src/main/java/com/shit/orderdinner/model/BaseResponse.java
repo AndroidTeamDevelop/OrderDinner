@@ -1,4 +1,4 @@
-package com.andteam.orderdinner.model;
+package com.shit.orderdinner.model;
 
 public class BaseResponse {
 	private int code;

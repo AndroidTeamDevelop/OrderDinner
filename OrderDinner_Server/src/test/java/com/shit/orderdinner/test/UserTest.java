@@ -1,12 +1,12 @@
-package com.andteam.orderdinner.test;
+package com.shit.orderdinner.test;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.andteam.orderdinner.model.User;
-import com.andteam.orderdinner.service.UserService;
+import com.shit.orderdinner.model.User;
+import com.shit.orderdinner.service.UserService;
 
 public class UserTest {
 

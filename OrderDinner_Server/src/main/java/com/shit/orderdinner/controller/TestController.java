@@ -1,4 +1,4 @@
-package com.andteam.orderdinner.controller;
+package com.shit.orderdinner.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.andteam.orderdinner.model.BaseResponse;
-import com.andteam.orderdinner.service.UserService;
+import com.shit.orderdinner.model.BaseResponse;
+import com.shit.orderdinner.service.UserService;
 
 @Controller
 @RequestMapping("/")

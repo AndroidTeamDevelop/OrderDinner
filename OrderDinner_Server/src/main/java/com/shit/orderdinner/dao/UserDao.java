@@ -1,6 +1,6 @@
-package com.andteam.orderdinner.dao;
+package com.shit.orderdinner.dao;
 
-import com.andteam.orderdinner.model.User;
+import com.shit.orderdinner.model.User;
 
 public interface UserDao {
 	/**

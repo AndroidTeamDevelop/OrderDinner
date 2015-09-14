@@ -1,4 +1,4 @@
-package orderdinner.andteam.com.orderdinner_android;
+package orderdinner.andteam.com.com;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
