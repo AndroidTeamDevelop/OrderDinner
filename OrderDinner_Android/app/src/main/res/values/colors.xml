@@ -4,6 +4,8 @@
     <!-- WelcomeActivity -->
     <color name="bg_activity_welcome">#1A9DFF</color>
 
-
-
+    <!-- Tab -->
+    <color name="bg_tab_widget">#F6F6F6</color>
+    <color name="text_tab_widget_color">#AAAAAA</color>
+    <color name="text_tab_widget_color_selected">#3190E8</color>
 </resources>

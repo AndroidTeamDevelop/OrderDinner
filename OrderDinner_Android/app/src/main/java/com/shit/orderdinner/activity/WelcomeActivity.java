@@ -7,7 +7,11 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
 import com.shit.orderdinner.R;
+import com.shit.orderdinner.common.CommonUtils;
+import com.shit.orderdinner.common.Constants;
 
 /**
  * Created by LUXIN on 2015/9/15.
@@ -43,11 +47,14 @@ public class WelcomeActivity extends Activity{
 
     private void initApp() {
         // TODO Ö´ÐÐµÄ²Ù×÷´ý²¹³ä
+        PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY,
+                CommonUtils.getMetaValue(activity, Constants.META_BAIDU_PUSH_API_KEY));
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(activity, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         }, 2000);
     }

@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">OrderDinner_Android</string>
+
+    <!-- Message -->
+    <string name="msg_exit">再按一次退出程序</string>
+
+    <!-- MainActivity -->
+    <string name="tab_take_out">外卖</string>
+    <string name="tab_orders">饿单</string>
+    <string name="tab_found">发现</string>
+    <string name="tab_personal">我的</string>
 </resources>

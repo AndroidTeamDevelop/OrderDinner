@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tab -->
+    <dimen name="tab_widget_height">54dip</dimen>
+    <dimen name="text_tab_widget_size">12sp</dimen>
+    <dimen name="img_tab_widget_width">24dip</dimen>
+    <dimen name="img_tab_widget_height">24dip</dimen>
+</resources>

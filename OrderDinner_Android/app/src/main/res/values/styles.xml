@@ -3,6 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+    </style>
+
+    <!--  Theme of WelcomeActivity-->
+    <style name="WelcomeActivityTheme" parent="AppTheme">
         <item name="android:windowBackground">@color/bg_activity_welcome</item>
     </style>
 
