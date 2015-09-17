@@ -9,4 +9,7 @@
     <string name="tab_orders">饿单</string>
     <string name="tab_found">发现</string>
     <string name="tab_personal">我的</string>
+    
+    <!-- PersonalFragment -->
+    <string name="personal_fragment_title_text">我的</string>
 </resources>

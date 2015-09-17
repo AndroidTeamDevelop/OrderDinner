@@ -8,4 +8,10 @@
     <color name="bg_tab_widget">#F6F6F6</color>
     <color name="text_tab_widget_color">#AAAAAA</color>
     <color name="text_tab_widget_color_selected">#3190E8</color>
+
+    <!-- 共通 -->
+    <!-- 标题栏背景色 -->
+    <color name="common_title_bar_bg">#1A9DFF</color>
+    <!-- 标题栏文字颜色 -->
+    <color name="common_title_bar_text_color">#FFFFFF</color>
 </resources>

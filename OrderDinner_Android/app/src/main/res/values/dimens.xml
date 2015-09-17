@@ -5,4 +5,14 @@
     <dimen name="text_tab_widget_size">12sp</dimen>
     <dimen name="img_tab_widget_width">24dip</dimen>
     <dimen name="img_tab_widget_height">24dip</dimen>
+
+    <!-- 共通 -->
+    <!-- 标题栏高度 -->
+    <dimen name="common_title_bar_height">60dip</dimen>
+    <!-- 标题栏文字尺寸 -->
+    <dimen name="common_title_bar_text_size">16sp</dimen>
+    <!-- 共通左间距 -->
+    <dimen name="common_margin_left">15dip</dimen>
+    <!-- 共通右间距 -->
+    <dimen name="common_margin_right">15dip</dimen>
 </resources>
