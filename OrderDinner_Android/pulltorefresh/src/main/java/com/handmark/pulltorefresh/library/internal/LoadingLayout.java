@@ -224,6 +224,10 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 	}
 
 	public final void pullToRefresh() {
+
+		mHeaderProgress.setVisibility(View.INVISIBLE);
+		mHeaderImage.setVisibility(View.VISIBLE);
+
 		if (null != mHeaderText) {
 			mHeaderText.setText(mPullLabel);
 		}
@@ -262,6 +266,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 		if (null != mHeaderText) {
 			mHeaderText.setText(mPullLabel);
 		}
+
 		mHeaderImage.setVisibility(View.VISIBLE);
 
 		if (mUseIntrinsicAnimation) {

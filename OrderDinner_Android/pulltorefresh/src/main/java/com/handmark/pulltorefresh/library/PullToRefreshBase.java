@@ -86,6 +86,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	private boolean mFilterTouchEvents = true;
 	private boolean mOverScrollEnabled = true;
 	private boolean mLayoutVisibilityChangesEnabled = true;
+	private boolean refreshComplete = false;
 
 	private Interpolator mScrollAnimationInterpolator;
 	private AnimationStyle mLoadingAnimationStyle = AnimationStyle.getDefault();
@@ -302,6 +303,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	@Override
 	public final void onRefreshComplete() {
 		if (isRefreshing()) {
+			refreshComplete = true;
 			setState(State.RESET);
 		}
 	}
@@ -789,8 +791,8 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		mLayoutVisibilityChangesEnabled = true;
 
 		// Always reset both layouts, just in case...
-		mHeaderLayout.reset();
-		mFooterLayout.reset();
+//		mHeaderLayout.reset();
+//		mFooterLayout.reset();
 
 		smoothScrollTo(0);
 	}
