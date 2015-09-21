@@ -32,6 +32,7 @@ public class MainActivity extends FragmentActivity{
     private int[] tabImgSelectedIds;
     private int[] tabTextIds;
 
+    private int lastTab = 0;
     private int currentTab = 0;
     // 上次按返回键的时间
     private long lastBackTime = 0;
@@ -83,6 +84,10 @@ public class MainActivity extends FragmentActivity{
             public void onTabChanged(String tabId) {
                 // 获得当前选中的tab
                 currentTab = tabhost.getCurrentTab();
+                if(lastTab == currentTab) {
+                    return;
+                }
+                lastTab = currentTab;
                 // 更改tab显示
                 for(int i = 0; i < 4; i++) {
                     if(i == currentTab){
@@ -99,8 +104,7 @@ public class MainActivity extends FragmentActivity{
         tabhost.setCurrentTab(0);
         // 更改第一个tabWidget的显示
         updateTabWidget(0, true);
-        // 默认显示第一个tab对应的fragment
-        updateView();
+
     }
 
     private void updateView() {
