@@ -4,37 +4,37 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTabHost;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TabHost;
-import android.widget.TabHost.OnTabChangeListener;
+import android.widget.TabWidget;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.shit.orderdinner.R;
-import com.shit.orderdinner.common.CommonUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by LUXIN on 2015/9/11.
  */
 public class MainActivity extends FragmentActivity{
 
+    // 上下文
     private FragmentActivity activity;
 
+    // 控件
+    private ViewPager viewPager;
     private FragmentTabHost tabhost;
-    private FragmentManager fm;
-    private FragmentTransaction ft;
-    private Fragment[] framents;
-    private int[] tabImgIds;
-    private int[] tabImgSelectedIds;
-    private int[] tabTextIds;
 
-    private int lastTab = 0;
-    private int currentTab = 0;
-    // 上次按返回键的时间
+    // 变量
+    // 上次按返回按钮的时间
     private long lastBackTime = 0;
 
     @Override
@@ -45,86 +45,67 @@ public class MainActivity extends FragmentActivity{
 
         init();
         intTabs();
+        initViewPager();
     }
 
     private void init() {
-        fm = activity.getSupportFragmentManager();
-        framents = new Fragment[4];
-        framents[0] = new TakeOutFragment();
-        framents[1] = new OrdersFragment();
-        framents[2] = new FoundFragment();
-        framents[3] = new PersonalFragment();
-        tabImgIds = new int[]{R.drawable.shopping_home_tab_take_out, R.drawable.shopping_home_tab_order, R.drawable.shopping_home_tab_found, R.drawable.shopping_home_tab_personal};
-        tabImgSelectedIds = new int[]{R.drawable.shopping_home_tab_take_out_selected, R.drawable.shopping_home_tab_order_selected,
-                R.drawable.shopping_home_tab_found_selected, R.drawable.shopping_home_tab_personal_selected};
-        tabTextIds = new int[]{R.string.tab_take_out, R.string.tab_orders, R.string.tab_found, R.string.tab_personal};
         tabhost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
     }
 
     private void intTabs() {
-        tabhost.setup(activity, fm, R.id.realtabcontent);
+        int[] tabImgIds = {R.drawable.tab_take_out, R.drawable.tab_orders, R.drawable.tab_found, R.drawable.tab_personal};
+        int[] tabTextIds = {R.string.tab_take_out, R.string.tab_orders, R.string.tab_found, R.string.tab_personal};
+        Class<?>[] fragments = {TakeOutFragment.class, OrdersFragment.class, FoundFragment.class, PersonalFragment.class};
+
+        tabhost.setup(activity, activity.getSupportFragmentManager(), R.id.viewPager);
         for(int i = 0; i <4; i++) {
             TabHost.TabSpec spec = tabhost.newTabSpec("tab" + i);
             // tab标签
             View tab_widget_view = View.inflate(this, R.layout.tab_widget, null);
             ImageView img_tab_widget = (ImageView) tab_widget_view.findViewById(R.id.img_tab_widget);
-            TextView text_tab_widget = (TextView) tab_widget_view
-                    .findViewById(R.id.text_tab_widget);
-            img_tab_widget.setImageBitmap(CommonUtils.getBitmapById(activity, tabImgIds[i]));
+            TextView text_tab_widget = (TextView) tab_widget_view.findViewById(R.id.text_tab_widget);
+            img_tab_widget.setImageResource(tabImgIds[i]);
             text_tab_widget.setText(getResources().getString(tabTextIds[i]));
             spec.setIndicator(tab_widget_view);
-            // 添加tab
-            tabhost.addTab(spec, framents[i].getClass(), null);
+
+            // tab 内容
+            tabhost.addTab(spec, fragments[i], null);
         }
+        tabhost.getTabWidget().setShowDividers(0);
 
-        // tab切换监听
-        tabhost.setOnTabChangedListener(new OnTabChangeListener() {
-
+        tabhost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                // 获得当前选中的tab
-                currentTab = tabhost.getCurrentTab();
-                if(lastTab == currentTab) {
-                    return;
-                }
-                lastTab = currentTab;
-                // 更改tab显示
-                for(int i = 0; i < 4; i++) {
-                    if(i == currentTab){
-                        updateTabWidget(i, true);
-                    }else{
-                        updateTabWidget(i, false);
-                    }
-                }
-                updateView();
+                viewPager.setCurrentItem(tabhost.getCurrentTab());
             }
         });
 
-        // 默认选中第一个tab
-        tabhost.setCurrentTab(0);
-        // 更改第一个tabWidget的显示
-        updateTabWidget(0, true);
-
     }
 
-    private void updateView() {
-        ft = fm.beginTransaction();
-        Fragment fragment = framents[currentTab];
-        ft.replace(R.id.realtabcontent, fragment);
-        ft.commit();
-    }
+    private void initViewPager() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-    private void updateTabWidget(int position, boolean selected) {
-        View tab_widget_view = tabhost.getTabWidget().getChildAt(position);
-        ImageView img_tab_widget = (ImageView) tab_widget_view.findViewById(R.id.img_tab_widget);
-        TextView text_tab_widget = (TextView) tab_widget_view.findViewById(R.id.text_tab_widget);
-        if(selected) {
-            img_tab_widget.setImageBitmap(CommonUtils.getBitmapById(activity, tabImgSelectedIds[position]));
-            text_tab_widget.setTextColor(getResources().getColor(R.color.text_tab_widget_color_selected));
-        } else {
-            img_tab_widget.setImageBitmap(CommonUtils.getBitmapById(activity, tabImgIds[position]));
-            text_tab_widget.setTextColor(getResources().getColor(R.color.text_tab_widget_color));
-        }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                TabWidget widget = tabhost.getTabWidget();
+                int oldFocusability = widget.getDescendantFocusability();
+                widget.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+                tabhost.setCurrentTab(position);
+                widget.setDescendantFocusability(oldFocusability);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        viewPager.setAdapter(new OrderDinnerFragmentsAdapter(activity.getSupportFragmentManager()));
     }
 
     @Override
@@ -140,5 +121,28 @@ public class MainActivity extends FragmentActivity{
             }
         }
         return false;
+    }
+
+    private class OrderDinnerFragmentsAdapter extends FragmentPagerAdapter {
+
+        private List<Fragment> fragments = new ArrayList<Fragment>();
+
+        public OrderDinnerFragmentsAdapter(FragmentManager fm) {
+            super(fm);
+            fragments.add(new TakeOutFragment());
+            fragments.add(new OrdersFragment());
+            fragments.add(new FoundFragment());
+            fragments.add(new PersonalFragment());
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragments.size();
+        }
     }
 }

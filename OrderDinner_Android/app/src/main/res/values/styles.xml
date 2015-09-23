@@ -2,24 +2,23 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/bg_app</item>
     </style>
 
     <!--  Theme of WelcomeActivity-->
     <style name="WelcomeActivityTheme" parent="AppTheme">
         <item name="android:windowBackground">@color/bg_activity_welcome</item>
     </style>
+
     <style name="dot_style">
+        <item name="android:layout_width">5dp</item>
 
-    <item name="android:layout_width">5dp</item>
+        <item name="android:layout_height">5dip</item>
 
-    <item name="android:layout_height">5dip</item>
+        <item name="android:background">@drawable/dot_normal</item>
 
-    <item name="android:background">@drawable/dot_normal</item>
+        <item name="android:layout_marginLeft">1.5dp</item>
 
-    <item name="android:layout_marginLeft">1.5dp</item>
-
-    <item name="android:layout_marginRight">1.5dp</item>
-
-</style>
+        <item name="android:layout_marginRight">1.5dp</item>
+    </style>
 </resources>

@@ -32,6 +32,7 @@ public class PersonalFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.fragment_personal, null);
         final PullToRefreshScrollView pull_to_refresh = (PullToRefreshScrollView) contentView.findViewById(R.id.pull_to_refresh);
+        pull_to_refresh.getRefreshableView().setFillViewport(true);
         pull_to_refresh.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ScrollView>() {
             @Override
             public void onRefresh(PullToRefreshBase<ScrollView> refreshView) {

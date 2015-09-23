@@ -14,7 +14,7 @@ import java.io.InputStream;
  */
 public class CommonUtils {
 
-    /** 根据key获得meta-data*/
+    /** 鏍规嵁key鑾峰彇meta data*/
     public static String getMetaValue(Context context, String metaKey) {
         Bundle metaData = null;
         String metaValue = null;
@@ -37,7 +37,7 @@ public class CommonUtils {
         return metaValue;
     }
 
-    /** 根据资源id获取图片*/
+    /** 鏍规嵁id鑾峰彇鍥剧墖*/
     public static Bitmap getBitmapById(Context context, int resId) {
         ImageLoader loader = ImageLoader.getInstance();
         Bitmap bmp = loader.getBitmapFromMemoryCache("" + resId);

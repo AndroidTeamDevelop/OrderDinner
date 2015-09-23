@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- background of app -->
+    <color name="bg_app">#EEEEEC</color>
+
     <!-- WelcomeActivity -->
     <color name="bg_activity_welcome">#1A9DFF</color>
 
@@ -14,4 +17,18 @@
     <color name="common_title_bar_bg">#1A9DFF</color>
     <!-- 标题栏文字颜色 -->
     <color name="common_title_bar_text_color">#FFFFFF</color>
+    <!-- 常用布局背景 -->
+    <color name="common_layout_bg">#FFFFFF</color>
+    <!-- 常用字体颜色 -->
+    <color name="common_text_color">#FFFFFF</color>
+
+    <!-- PersonalFragment -->
+
+    <color name="label_color1">#676767</color>
+    <color name="label_color2">#000000</color>
+
+    <color name="my_money_text_color">#FF9900</color>
+    <color name="my_bonous_text_color">#FF5F3E</color>
+    <color name="my_points_text_color">#6AC20B</color>
+
 </resources>
