@@ -4,8 +4,10 @@
     android:layout_height="match_parent">
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/pull_to_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        ptr:ptrAnimationStyle="flip"/>
 
 </LinearLayout>
