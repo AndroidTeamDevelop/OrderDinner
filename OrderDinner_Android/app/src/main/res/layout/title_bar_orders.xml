@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/common_title_bar_height">
+
+    <TextView android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/common_margin_left"
+        android:textColor="@color/common_title_bar_text_color"
+        android:textSize="@dimen/common_title_bar_text_size"
+        android:text="@string/orders_fragment_title_text" />
+
+    <TextView android:id="@+id/text_breakfast_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/common_margin_right"
+        android:textColor="@color/common_title_bar_text_color"
+        android:textSize="@dimen/common_title_bar_text_size"
+        android:text="@string/breakfast_orders" />
+
+</RelativeLayout>

@@ -6,7 +6,7 @@
 
     <!-- MainActivity -->
     <string name="tab_take_out">外卖</string>
-    <string name="tab_orders">饿单</string>
+    <string name="tab_orders">订单</string>
     <string name="tab_found">发现</string>
     <string name="tab_personal">我的</string>
     
@@ -29,4 +29,16 @@
     <string name="label_eleme_vip">饿配送会员卡</string>
     <string name="label_service_center">服务中心</string>
     <string name="label_support_eleme">喜欢饿了么？鼓励下</string>
+
+    <!-- FoundFragment -->
+    <string name="found_fragment_title_text">发现</string>
+    <string name="label_points_center_sub">豪礼走在这里</string>
+    <string name="label_groupon_nearby">附近团购</string>
+    <string name="label_groupon_nearby_sub">出去吃饭也便宜</string>
+
+    <!-- OrdersFragment -->
+    <string name="orders_fragment_title_text">订单</string>
+    <string name="breakfast_orders">早餐订单</string>
+    <string name="listview_empty_hint">近一个月无订单记录</string>
+    <string name="listview_empty_sub_hint">历史订单请登录网站ele.me查看</string>
 </resources>

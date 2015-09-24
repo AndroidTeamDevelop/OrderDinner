@@ -3,44 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout android:id="@+id/layout_titlebar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/common_title_bar_height"
-        android:background="@color/common_title_bar_bg">
-
-        <TextView android:id="@+id/text_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/common_margin_left"
-            android:textColor="@color/common_title_bar_text_color"
-            android:textSize="@dimen/common_title_bar_text_size"
-            android:text="@string/personal_fragment_title_text" />
-
-        <ImageView android:id="@+id/img_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/common_margin_right"
-            android:src="@drawable/more_setting"/>
-
-        <ImageView android:id="@+id/img_notice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/img_setting"
-            android:layout_marginRight="30dip"
-            android:src="@drawable/user_center_notice"/>
-
-    </RelativeLayout>
-
     <com.handmark.pulltorefresh.library.PullToRefreshScrollView
         xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/pull_to_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/layout_titlebar"
         ptr:ptrAnimationStyle="flip">
 
         <LinearLayout
@@ -148,7 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/common_text_size_middle"
-                        android:textColor="@color/label_color1"
+                        android:textColor="@color/personal_fragment_label_color"
                         android:text="@string/label_my_money"/>
 
                 </LinearLayout>
@@ -188,7 +155,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/common_text_size_middle"
-                        android:textColor="@color/label_color1"
+                        android:textColor="@color/personal_fragment_label_color"
                         android:text="@string/label_my_bonous"/>
 
                 </LinearLayout>
@@ -228,7 +195,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/common_text_size_middle"
-                        android:textColor="@color/label_color1"
+                        android:textColor="@color/personal_fragment_label_color"
                         android:text="@string/label_my_points"/>
 
                 </LinearLayout>
@@ -239,7 +206,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:layout_weight="1"
-                android:layout_marginTop="10dip"
+                android:layout_marginTop="@dimen/common_divider_height"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -262,7 +229,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12dip"
                         android:textSize="@dimen/common_text_size_middle"
-                        android:textColor="@color/label_color2"
+                        android:textColor="@color/personal_fragment_label_color_black"
                         android:text="@string/label_my_favorite"/>
 
                 </LinearLayout>
@@ -288,7 +255,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12dip"
                         android:textSize="@dimen/common_text_size_middle"
-                        android:textColor="@color/label_color2"
+                        android:textColor="@color/personal_fragment_label_color_black"
                         android:text="@string/label_delicious_pictures"/>
 
                 </LinearLayout>
@@ -299,7 +266,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:layout_weight="1"
-                android:layout_marginTop="10dip"
+                android:layout_marginTop="@dimen/common_divider_height"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -322,7 +289,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12dip"
                         android:textSize="@dimen/common_text_size_middle"
-                        android:textColor="@color/label_color2"
+                        android:textColor="@color/personal_fragment_label_color_black"
                         android:text="@string/label_points_center"/>
 
                 </LinearLayout>
@@ -348,7 +315,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12dip"
                         android:textSize="@dimen/common_text_size_middle"
-                        android:textColor="@color/label_color2"
+                        android:textColor="@color/personal_fragment_label_color_black"
                         android:text="@string/label_eleme_vip"/>
 
                 </LinearLayout>
@@ -359,8 +326,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:layout_weight="1"
-                android:layout_marginTop="10dip"
-                android:layout_marginBottom="10dip"
+                android:layout_marginTop="@dimen/common_divider_height"
+                android:layout_marginBottom="@dimen/common_divider_height"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -383,7 +350,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12dip"
                         android:textSize="@dimen/common_text_size_middle"
-                        android:textColor="@color/label_color2"
+                        android:textColor="@color/personal_fragment_label_color_black"
                         android:text="@string/label_service_center"/>
 
                 </LinearLayout>
@@ -409,7 +376,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12dip"
                         android:textSize="@dimen/common_text_size_middle"
-                        android:textColor="@color/label_color2"
+                        android:textColor="@color/personal_fragment_label_color_black"
                         android:text="@string/label_support_eleme"/>
 
                 </LinearLayout>
@@ -419,6 +386,5 @@
         </LinearLayout>
 
     </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
-
 
 </RelativeLayout>

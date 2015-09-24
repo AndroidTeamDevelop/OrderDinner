@@ -23,12 +23,17 @@
     <color name="common_text_color">#FFFFFF</color>
 
     <!-- PersonalFragment -->
-
-    <color name="label_color1">#676767</color>
-    <color name="label_color2">#000000</color>
-
+    <color name="personal_fragment_label_color">#676767</color>
+    <color name="personal_fragment_label_color_black">#000000</color>
     <color name="my_money_text_color">#FF9900</color>
     <color name="my_bonous_text_color">#FF5F3E</color>
     <color name="my_points_text_color">#6AC20B</color>
 
+    <!-- FoundFragment -->
+    <color name="found_fragment_label_color">#686868</color>
+    <color name="label_poinrts_center_color">#FC7B53</color>
+    <color name="label_groupon_nearby_color">#4AA5F0</color>
+
+    <!-- OrdersFragment -->
+    <color name="listview_empty_hint_color">#666666</color>
 </resources>

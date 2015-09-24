@@ -21,4 +21,6 @@
     <dimen name="common_text_size_large">16sp</dimen>
     <dimen name="common_text_size_middle">14sp</dimen>
     <dimen name="common_text_size_small">12sp</dimen>
+    <!-- 共通divider -->
+    <dimen name="common_divider_height">10dip</dimen>
 </resources>

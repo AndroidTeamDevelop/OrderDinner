@@ -3,4 +3,99 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_divider_height"
+        android:orientation="horizontal">
+
+        <RelativeLayout android:id="@+id/layout_points_center"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/common_layout_bg"
+            android:paddingTop="16dip"
+            android:paddingBottom="16dip">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/common_margin_left"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/common_text_size_large"
+                    android:textColor="@color/label_poinrts_center_color"
+                    android:text="@string/label_points_center"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dip"
+                    android:textSize="@dimen/common_text_size_small"
+                    android:textColor="@color/found_fragment_label_color"
+                    android:text="@string/label_points_center_sub" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/common_margin_right"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/layout_groupon_nearby"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="1dip"
+            android:background="@color/common_layout_bg"
+            android:paddingTop="16dip"
+            android:paddingBottom="16dip">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/common_margin_left"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/common_text_size_large"
+                    android:textColor="@color/label_groupon_nearby_color"
+                    android:text="@string/label_groupon_nearby"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dip"
+                    android:textSize="@dimen/common_text_size_small"
+                    android:textColor="@color/found_fragment_label_color"
+                    android:text="@string/label_groupon_nearby_sub" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/common_margin_right"/>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
 </LinearLayout>

@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ public class MainActivity extends FragmentActivity{
     // 控件
     private ViewPager viewPager;
     private FragmentTabHost tabhost;
+    private LinearLayout layout_titlebar;
 
     // 变量
     // 上次按返回按钮的时间
@@ -51,6 +53,7 @@ public class MainActivity extends FragmentActivity{
     private void init() {
         tabhost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
+        layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
     }
 
     private void intTabs() {
@@ -77,10 +80,29 @@ public class MainActivity extends FragmentActivity{
         tabhost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                viewPager.setCurrentItem(tabhost.getCurrentTab());
+                int position = tabhost.getCurrentTab();
+                viewPager.setCurrentItem(position);
+                switchTitle(position);
             }
         });
 
+    }
+
+    private void switchTitle(int position) {
+        layout_titlebar.removeAllViews();
+        switch (position % 4) {
+            case 0:
+                break;
+            case 1:
+                layout_titlebar.addView(View.inflate(activity, R.layout.title_bar_orders, null));
+                break;
+            case 2:
+                layout_titlebar.addView(View.inflate(activity, R.layout.title_bar_found, null));
+                break;
+            case 3:
+                layout_titlebar.addView(View.inflate(activity, R.layout.title_bar_personal, null));
+                break;
+        }
     }
 
     private void initViewPager() {
