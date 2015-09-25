@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layout_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_title_bar_height"
+        android:background="@color/common_title_bar_bg">
+
+        <ImageView
+            android:id="@+id/img_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_margin_left"
+            android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/img_return"
+            android:layout_marginLeft="@dimen/common_margin_left"
+            android:textSize="@dimen/common_title_bar_text_size"
+            android:textColor="@color/common_title_bar_text_color"
+            android:text="@string/user_register_activity_title_text"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/layout_input_user_tel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_divider_height"
+        android:layout_below="@id/layout_titlebar"
+        android:background="@color/common_layout_bg"
+        android:padding="12dip">
+
+        <EditText
+            android:id="@+id/edit_user_tel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingRight="40dip"
+            android:background="@null"
+            android:inputType="phone"
+            android:textSize="@dimen/common_text_size_large"
+            android:singleLine="true"
+            android:hint="@string/hint_user_tel"/>
+
+        <ImageView android:id="@+id/img_text_clear1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/m_switchaddress_icon_close"
+            android:visibility="invisible"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/layout_input_invite_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dip"
+        android:layout_below="@id/layout_input_user_tel"
+        android:background="@color/common_layout_bg"
+        android:padding="12dip"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/edit_invite_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/img_help"
+            android:layout_marginRight="@dimen/common_margin_right"
+            android:layout_centerVertical="true"
+            android:paddingRight="40dip"
+            android:background="@null"
+            android:textSize="@dimen/common_text_size_large"
+            android:singleLine="true"
+            android:hint="@string/hint_invite_code"/>
+
+        <ImageView
+            android:id="@id/img_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/register_help"/>
+
+        <ImageView android:id="@+id/img_text_clear2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/img_help"
+            android:layout_marginRight="@dimen/common_margin_right"
+            android:src="@drawable/m_switchaddress_icon_close"
+            android:visibility="invisible"/>
+
+    </RelativeLayout>
+
+    <Button android:id="@+id/btn_register_next_step"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_input_invite_code"
+        android:layout_marginTop="16dip"
+        android:layout_marginLeft="@dimen/common_margin_left"
+        android:layout_marginRight="@dimen/common_margin_right"
+        android:paddingTop="12dip"
+        android:paddingBottom="12dip"
+        android:background="@drawable/common_btn_bg"
+        android:enabled="false"
+        android:textSize="@dimen/common_text_size_large"
+        android:textColor="@color/common_text_color"
+        android:text="@string/register_next_step_btn_text"/>
+
+    <LinearLayout android:id="@+id/layout_service_agreemnet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_register_next_step"
+        android:layout_marginTop="20dip"
+        android:layout_centerHorizontal="true"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/label_service_agreemnet_color"
+            android:textSize="@dimen/common_text_size_small"
+            android:text="@string/label_service_agreemnet"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/service_agreemnet_text_color"
+            android:textSize="@dimen/common_text_size_small"
+            android:text="@string/service_agreemnet_name"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

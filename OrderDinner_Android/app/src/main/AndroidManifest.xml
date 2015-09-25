@@ -32,6 +32,9 @@
         </activity>
 
         <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.UserLoginActivity"/>
+        <activity android:name=".activity.UserRegisterActivity"/>
+        <activity android:name=".activity.IdentifyingCodeActivity"/>
 
         <!-- push应用定义消息receiver声明 -->
         <receiver android:name="com.shit.orderdinner.push.BaiduPushReceiver" >

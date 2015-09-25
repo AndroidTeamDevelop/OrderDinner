@@ -27,16 +27,16 @@ import java.util.List;
  */
 public class MainActivity extends FragmentActivity{
 
-    // ÉÏÏÂÎÄ
+    // ä¸Šä¸‹æ–‡
     private FragmentActivity activity;
 
-    // ¿Ø¼ş
+    // æ§ä»¶
     private ViewPager viewPager;
     private FragmentTabHost tabhost;
     private LinearLayout layout_titlebar;
 
-    // ±äÁ¿
-    // ÉÏ´Î°´·µ»Ø°´Å¥µÄÊ±¼ä
+    // å˜é‡
+    // ä¸Šæ¬¡æŒ‰è¿”å›é”®çš„æ—¶é—´
     private long lastBackTime = 0;
 
     @Override
@@ -64,7 +64,7 @@ public class MainActivity extends FragmentActivity{
         tabhost.setup(activity, activity.getSupportFragmentManager(), R.id.viewPager);
         for(int i = 0; i <4; i++) {
             TabHost.TabSpec spec = tabhost.newTabSpec("tab" + i);
-            // tab±êÇ©
+            // tabæ ‡ç­¾
             View tab_widget_view = View.inflate(this, R.layout.tab_widget, null);
             ImageView img_tab_widget = (ImageView) tab_widget_view.findViewById(R.id.img_tab_widget);
             TextView text_tab_widget = (TextView) tab_widget_view.findViewById(R.id.text_tab_widget);
@@ -72,7 +72,7 @@ public class MainActivity extends FragmentActivity{
             text_tab_widget.setText(getResources().getString(tabTextIds[i]));
             spec.setIndicator(tab_widget_view);
 
-            // tab ÄÚÈİ
+            // æ·»åŠ tab
             tabhost.addTab(spec, fragments[i], null);
         }
         tabhost.getTabWidget().setShowDividers(0);
@@ -138,7 +138,7 @@ public class MainActivity extends FragmentActivity{
                 lastBackTime = currentTime;
                 Toast.makeText(activity, R.string.msg_exit, Toast.LENGTH_SHORT).show();
             } else {
-                // ÍË³ö³ÌĞò
+                // é€€å‡ºç¨‹åº
                 finish();
             }
         }

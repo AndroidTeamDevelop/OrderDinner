@@ -39,14 +39,14 @@ public class WelcomeActivity extends Activity{
             public void run() {
                 img_splash_text.setVisibility(View.VISIBLE);
                 img_splash_logo.setVisibility(View.VISIBLE);
-                // 执行App必要的初始化操作
+                // 鎵ц鍚姩App鐨勫繀瑕佸垵濮嬪寲鎿嶄綔
                 initApp();
             }
         }, 2000);
     }
 
     private void initApp() {
-        // TODO 执行的操作待补充
+        // TODO 鎵ц鍚姩App鐨勫繀瑕佸垵濮嬪寲鎿嶄綔
         PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY,
                 CommonUtils.getMetaValue(activity, Constants.META_BAIDU_PUSH_API_KEY));
         new Handler().postDelayed(new Runnable() {

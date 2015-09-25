@@ -31,11 +31,24 @@ public class OrdersFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.fragment_orders, null);
+        // 设置下拉刷新
+        setPullToRefresh(contentView);
+        // 初始化组件
+        initView(contentView);
+        return contentView;
+    }
+
+    private void initView(View contentView) {
+
+    }
+
+    private void setPullToRefresh(View contentView) {
         final PullToRefreshListView pull_to_refresh  = (PullToRefreshListView) contentView.findViewById(R.id.pull_to_refresh);
-        pull_to_refresh.getRefreshableView().setEmptyView(inflater.inflate(R.layout.layout_listview_empty, null));
+        pull_to_refresh.getRefreshableView().setEmptyView(View.inflate(activity, R.layout.layout_listview_empty, null));
         pull_to_refresh.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override
             public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+                // TODO 执行刷新操作
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -44,6 +57,5 @@ public class OrdersFragment extends Fragment{
                 }, 2000);
             }
         });
-        return contentView;
     }
 }

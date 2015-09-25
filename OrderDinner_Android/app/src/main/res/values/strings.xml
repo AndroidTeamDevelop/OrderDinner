@@ -41,4 +41,35 @@
     <string name="breakfast_orders">早餐订单</string>
     <string name="listview_empty_hint">近一个月无订单记录</string>
     <string name="listview_empty_sub_hint">历史订单请登录网站ele.me查看</string>
+
+    <!-- UserLoginActivity -->
+    <string name="user_login_activity_title_text">登录</string>
+    <string name="user_register">注册</string>
+    <string name="hint_user_identity">手机/邮箱/用户名</string>
+    <string name="hint_user_pwd">密码</string>
+    <string name="login_btn_text">登录</string>
+    <string name="forget_pwd_text">忘记密码？</string>
+    <string name="message_login_text">短信验证码登录</string>
+    <string name="qq_login_text">QQ</string>
+    <string name="weibo_login_text">微博</string>
+    <string name="weixin_login_text">微信</string>
+    <string name="third_party_login">第三方登录</string>
+
+    <!-- UserRegisterActivity -->
+    <string name="user_register_activity_title_text">注册</string>
+    <string name="hint_user_tel">手机号</string>
+    <string name="hint_invite_code">邀请码（选填）</string>
+    <string name="register_next_step_btn_text">下一步，获取验证码</string>
+    <string name="label_service_agreemnet">注册代表同意</string>
+    <string name="service_agreemnet_name">《用户服务协议》</string>
+
+    <!-- IdentifyingCodeActivity -->
+    <string name="identifying_code_activity_title_text">注册</string>
+    <string name="label_user_tel">验证码已发送至手机</string>
+    <string name="hint_identifying_code">验证码</string>
+    <string name="reget_identifying_code">重新获取</string>
+    <string name="havesend_identifying_code">已发送(%1$ds)</string>
+    <string name="register_complete_btn_text">完成注册</string>
+    <string name="label_voice_indentifying">收不到短信？使用</string>
+    <string name="voice_indentifying">语音验证码</string>
 </resources>
