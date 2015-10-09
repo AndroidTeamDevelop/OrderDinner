@@ -7,6 +7,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 import java.io.InputStream;
 
 /**
@@ -50,5 +58,12 @@ public class CommonUtils {
             loader.addBitmapToMemoryCache("" + resId, bmp);
         }
         return bmp;
+    }
+
+    /** 执行Post请求*/
+    public static void doPostRequest(Context context, String url, Response.Listener<JSONObject> listener) {
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(new JsonObjectRequest(Request.Method.POST, url,listener, null));
+        requestQueue.start();
     }
 }

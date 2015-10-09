@@ -3,6 +3,7 @@
 
     <!-- Message -->
     <string name="msg_exit">再按一次退出程序</string>
+    <string name="msg_not_empty">%1$s 不能为空</string>
 
     <!-- MainActivity -->
     <string name="tab_take_out">外卖</string>
@@ -72,4 +73,5 @@
     <string name="register_complete_btn_text">完成注册</string>
     <string name="label_voice_indentifying">收不到短信？使用</string>
     <string name="voice_indentifying">语音验证码</string>
+    <string name="getting_identifying_code">发送中...</string>
 </resources>

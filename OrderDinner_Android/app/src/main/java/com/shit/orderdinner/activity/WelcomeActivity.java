@@ -13,6 +13,8 @@ import com.shit.orderdinner.R;
 import com.shit.orderdinner.common.CommonUtils;
 import com.shit.orderdinner.common.Constants;
 
+import cn.smssdk.SMSSDK;
+
 /**
  * Created by LUXIN on 2015/9/15.
  */
@@ -49,6 +51,8 @@ public class WelcomeActivity extends Activity{
         // TODO 执行启动App的必要初始化操作
         PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY,
                 CommonUtils.getMetaValue(activity, Constants.META_BAIDU_PUSH_API_KEY));
+        SMSSDK.initSDK(activity, CommonUtils.getMetaValue(activity, Constants.META_MOB_SMS_APP_KEY)
+                , CommonUtils.getMetaValue(activity, Constants.META_MOB_SMS_APP_SECRET));
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

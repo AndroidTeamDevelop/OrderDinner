@@ -10,6 +10,8 @@ public class User {
 	private String user_tel;
 	/** ÃÜÂë*/
 	private String user_pwd;
+	/** ÓÊÏä*/
+	private String user_email;
 	
 	public int getUser_id() {
 		return user_id;
@@ -34,6 +36,12 @@ public class User {
 	}
 	public void setUser_pwd(String user_pwd) {
 		this.user_pwd = user_pwd;
+	}
+	public String getUser_email() {
+		return user_email;
+	}
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
 	}
 
 }

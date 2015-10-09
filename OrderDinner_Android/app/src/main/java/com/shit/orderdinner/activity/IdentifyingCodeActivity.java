@@ -3,7 +3,8 @@ package com.shit.orderdinner.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -16,6 +17,9 @@ import android.widget.TextView;
 import com.shit.orderdinner.R;
 import com.shit.orderdinner.common.Constants;
 import com.shit.orderdinner.common.CountDownClock;
+
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 
 /**
  * Created by LUXIN on 2015/9/25.
@@ -44,6 +48,9 @@ public class IdentifyingCodeActivity extends Activity{
     // 变量
     // 倒计时器
     private CountDownClock clock;
+    private Handler handler;
+    private EventHandler eventHandler;
+    private String user_tel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +60,61 @@ public class IdentifyingCodeActivity extends Activity{
 
         // 初始化组件
         initView();
-        // 开始计时
-        startCountDown();
+        // 初始化短信验证
+        initSMS();
+        // 获取短信验证
+        getVerificationCode();
         // 设置监听
         setListeners();
 
+    }
+
+    private void getVerificationCode() {
+        btn_get_identifying_code.setEnabled(false);
+        btn_get_identifying_code.setText(getResources().getString(R.string.getting_identifying_code));
+        SMSSDK.getVerificationCode("86", user_tel);
+    }
+
+    private void initSMS() {
+        handler = new Handler() {
+
+            @Override
+            public void handleMessage(Message msg) {
+                int event = msg.arg1;
+                int result = msg.arg2;
+                Object data = msg.obj;
+                if(result == SMSSDK.RESULT_COMPLETE) {
+                    switch (event) {
+                        case SMSSDK.EVENT_GET_VERIFICATION_CODE:
+                            startCountDown();
+                            break;
+                        case SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE:
+                            // TODO 验证成功，跳转到后续画面
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        };
+
+        eventHandler = new EventHandler() {
+            /**
+             * 执行SMS操作后回调
+             * @param event 操作类型
+             * @param result SMSSDK.RESULT_COMPLETE表示操作成功，SMSSDK.RESULT_ERROR表示操作失败
+             * @param data 事件操作的结果
+             */
+            @Override
+            public void afterEvent(int event, int result, Object data) {
+                Message msg = handler.obtainMessage();
+                msg.arg1 = event;
+                msg.arg2 = result;
+                msg.obj = data;
+                handler.sendMessage(msg);
+            }
+        };
+        SMSSDK.registerEventHandler(eventHandler);
     }
 
     private void startCountDown() {
@@ -66,7 +123,8 @@ public class IdentifyingCodeActivity extends Activity{
         clock.setCountDownListener(new CountDownClock.CountDownListener() {
             @Override
             public void onTick(long millisUntilFinished) {
-                btn_get_identifying_code.setText(String.format(getResources().getString(R.string.havesend_identifying_code), (int)(millisUntilFinished/1000)));
+                btn_get_identifying_code.setText(String.format(getResources().getString(
+                        R.string.havesend_identifying_code), (int)(millisUntilFinished/1000)));
             }
 
             @Override
@@ -125,8 +183,7 @@ public class IdentifyingCodeActivity extends Activity{
         btn_get_identifying_code.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO 请求获取验证码
-                startCountDown();
+                getVerificationCode();
             }
         });
 
@@ -134,7 +191,7 @@ public class IdentifyingCodeActivity extends Activity{
         btn_register_complete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO 验证注册码
+                SMSSDK.submitVerificationCode("86", user_tel, edit_indentifying_code.getText().toString());
             }
         });
 
@@ -157,7 +214,13 @@ public class IdentifyingCodeActivity extends Activity{
         layout_voice_indentifying = (LinearLayout) findViewById(R.id.layout_voice_indentifying);
 
         Intent intent = getIntent();
-        text_user_tel.setText(intent.getStringExtra(Constants.INTENT_USER_TEL));
+        user_tel = intent.getStringExtra(Constants.INTENT_USER_TEL);
+        text_user_tel.setText(user_tel);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SMSSDK.unregisterEventHandler(eventHandler);
+    }
 }

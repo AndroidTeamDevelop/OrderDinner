@@ -1,4 +1,4 @@
-package com.shit.orderdinner.test;
+package com.shit.orderdinner.sample;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.shit.orderdinner.model.User;
 import com.shit.orderdinner.service.UserService;
 
-public class UserTest {
+public class TestJunit {
 
     private UserService userService;
 	

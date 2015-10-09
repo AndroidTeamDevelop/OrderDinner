@@ -126,7 +126,7 @@ public class UserRegisterActivity extends Activity{
         img_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // TODO 邀请码说明明帮助
             }
         });
 
@@ -150,7 +150,7 @@ public class UserRegisterActivity extends Activity{
         layout_service_agreemnet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // TODO 展示服务协议画面
             }
         });
 

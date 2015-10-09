@@ -82,7 +82,7 @@
             android:id="@+id/edit_user_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/img_inputmode_switch"
+            android:layout_toLeftOf="@+id/check_inputmode_switch"
             android:layout_marginRight="@dimen/common_margin_right"
             android:layout_centerVertical="true"
             android:paddingRight="40dip"
@@ -93,7 +93,7 @@
             android:hint="@string/hint_user_pwd"/>
 
         <CheckBox
-            android:id="@id/img_inputmode_switch"
+            android:id="@id/check_inputmode_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -105,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/img_inputmode_switch"
+            android:layout_toLeftOf="@id/check_inputmode_switch"
             android:layout_marginRight="@dimen/common_margin_right"
             android:src="@drawable/m_switchaddress_icon_close"
             android:visibility="invisible"/>
