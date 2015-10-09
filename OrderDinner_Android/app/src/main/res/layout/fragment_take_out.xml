@@ -38,45 +38,18 @@
     </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="150dp">
         <android.support.v4.view.ViewPager
             android:id="@+id/ad"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             ></android.support.v4.view.ViewPager>
         <LinearLayout
+            android:id="@+id/points"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <View
-                android:id="@+id/v_dot0"
-                style="@style/dot_style"
-                android:background="@drawable/dot_focused"
-                android:visibility="invisible" />
-            <View
-                android:id="@+id/v_dot1"
-                style="@style/dot_style"
-                android:visibility="invisible"/>
-            <View
-                android:id="@+id/v_dot2"
-                style="@style/dot_style"
-                android:visibility="invisible"/>
-            <View
-                android:id="@+id/v_dot3"
-                style="@style/dot_style"
-                android:visibility="invisible"/>
-            <View
-                android:id="@+id/v_dot4"
-                style="@style/dot_style"
-                android:visibility="invisible"/>
-            <View
-                android:id="@+id/v_dot5"
-                style="@style/dot_style"
-                android:visibility="invisible"/>
-            <View
-                android:id="@+id/v_dot6"
-                style="@style/dot_style"
-                android:visibility="invisible"/>
-
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
         </LinearLayout>
     </RelativeLayout>
 
