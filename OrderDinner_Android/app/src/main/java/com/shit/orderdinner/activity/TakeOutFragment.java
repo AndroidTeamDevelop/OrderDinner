@@ -90,13 +90,13 @@ public class TakeOutFragment extends Fragment {
         View view;
         LayoutParams params;
         for (int i = 0; i < bannerImages.length; i++) {
-            // ÉèÖÃ¹ã¸æÍ¼
+            // ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½Í?
             ImageView imageView = new ImageView(activity);
             imageView.setLayoutParams(new LayoutParams(
                     LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
             imageView.setBackgroundResource(bannerImages[i]);
             mlist.add(imageView);
-            // ÉèÖÃÔ²È¦µã
+            // ï¿½ï¿½ï¿½ï¿½Ô²È¦ï¿½ï¿½
             view = new View(activity);
             params = new LayoutParams(25, 25);
             view.setBackgroundResource(R.drawable.point_selecte);
@@ -109,7 +109,7 @@ public class TakeOutFragment extends Fragment {
         mViewPager.setAdapter(mAdapter);
     }
 
-    //ÊµÏÖVierPager¼àÌýÆ÷½Ó¿Ú
+    //Êµï¿½ï¿½VierPagerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
     class BannerListener implements ViewPager.OnPageChangeListener {
         @Override
         public void onPageScrollStateChanged(int arg0) {
@@ -124,14 +124,14 @@ public class TakeOutFragment extends Fragment {
             int newPosition = position % bannerImages.length;
             mLinearLayout.getChildAt(newPosition).setEnabled(true);
             mLinearLayout.getChildAt(pointIndex).setEnabled(false);
-            // ¸üÐÂ±êÖ¾Î»
+            // ï¿½ï¿½ï¿½Â±ï¿½Ö¾Î»
             pointIndex = newPosition;
         }
     }
 
     @Override
     public void onDestroy() {
-        // ¹Ø±Õ¶¨Ê±Æ÷
+        // ï¿½Ø±Õ¶ï¿½Ê±ï¿½ï¿½
         isStop = true;
         super.onDestroy();
     }

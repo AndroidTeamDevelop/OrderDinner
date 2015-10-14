@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/common_title_bar_height"
+    android:background="@color/common_title_bar_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/location_title_icon"
+        android:layout_marginLeft="@dimen/common_margin_left"/>
+
+    <TextView
+        android:id="@+id/address_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/common_title_bar_text_size"
+        android:textColor="@color/common_title_bar_text_color"
+        android:textColorHint="@color/common_title_bar_text_color"
+        android:hint="@string/hint_address"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/abc_spinner_mtrl_am_alpha"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/abc_ic_search_api_mtrl_alpha"
+        android:layout_marginRight="@dimen/common_margin_right"/>
+
+</LinearLayout>

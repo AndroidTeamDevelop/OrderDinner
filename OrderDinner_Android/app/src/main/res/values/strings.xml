@@ -10,6 +10,9 @@
     <string name="tab_orders">订单</string>
     <string name="tab_found">发现</string>
     <string name="tab_personal">我的</string>
+
+    <!-- TakeOutFragment -->
+    <string name="hint_address">请输入地址</string>
     
     <!-- PersonalFragment -->
     <string name="personal_fragment_title_text">我的</string>

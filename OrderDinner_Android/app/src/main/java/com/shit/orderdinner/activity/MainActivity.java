@@ -54,6 +54,7 @@ public class MainActivity extends FragmentActivity{
         tabhost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
+        layout_titlebar.addView(View.inflate(activity, R.layout.title_bar_takeout, null));
     }
 
     private void intTabs() {
@@ -75,6 +76,7 @@ public class MainActivity extends FragmentActivity{
             // 添加tab
             tabhost.addTab(spec, fragments[i], null);
         }
+        // 取消tab标签间隔
         tabhost.getTabWidget().setShowDividers(0);
 
         tabhost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
@@ -92,6 +94,7 @@ public class MainActivity extends FragmentActivity{
         layout_titlebar.removeAllViews();
         switch (position % 4) {
             case 0:
+                layout_titlebar.addView(View.inflate(activity, R.layout.title_bar_takeout, null));
                 break;
             case 1:
                 layout_titlebar.addView(View.inflate(activity, R.layout.title_bar_orders, null));
