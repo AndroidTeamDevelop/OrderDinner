@@ -2,6 +2,10 @@ package com.shit.orderdinner.activity;
 
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,19 +20,19 @@ import java.util.ArrayList;
 /**
  * Created by LUXIN on 2015/9/17.
  */
-public class TakeOutFragment extends Fragment{
+public class TakeOutFragment extends Fragment {
 
     private FragmentActivity activity;
     private ViewPager mViewPager;
     private ArrayList<ImageView> mlist;
-    LinearLayout mLinearLayout;
-    // ¹ã¸æÍ¼ËØ²Ä
+    private LinearLayout mLinearLayout;
+    // ï¿½ï¿½ï¿½Í¼ï¿½Ø²ï¿?
     private int[] bannerImages = { R.drawable.welcome02, R.drawable.welcome03, R.drawable.weixin_iner_icon };
-    // Ô²È¦±êÖ¾Î»
+    // Ô²È¦ï¿½ï¿½Ö¾Î»
     private int pointIndex = 0;
-    // Ïß³Ì±êÖ¾
+    // ï¿½ß³Ì±ï¿½Ö¾
     private boolean isStop = false;
-    // ViewPagerÊÊÅäÆ÷Óë¼àÌýÆ÷
+    // ViewPagerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
     private BannerAdapter mAdapter;
     private BannerListener bannerListener;
     @Override
@@ -64,7 +68,7 @@ public class TakeOutFragment extends Fragment{
     }
 
     private void initTime() {
-        // ¿ªÆôÐÂÏß³Ì£¬2ÃëÒ»´Î¸üÐÂBanner
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½2ï¿½ï¿½Ò»ï¿½Î¸ï¿½ï¿½ï¿½Banner
         new Thread(new Runnable() {
 
             @Override
@@ -86,9 +90,9 @@ public class TakeOutFragment extends Fragment{
     private void initAction() {
         bannerListener = new BannerListener();
         mViewPager.setOnPageChangeListener(bannerListener);
-        //È¡ÖÐ¼äÊýÀ´×÷ÎªÆðÊ¼Î»ÖÃ
+        //È¡ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ê¼Î»ï¿½ï¿½
         int index = (Integer.MAX_VALUE / 2) - (Integer.MAX_VALUE / 2 % mlist.size());
-        //ÓÃÀ´³ö·¢¼àÌýÆ÷
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         mViewPager.setCurrentItem(index);
         mLinearLayout.getChildAt(pointIndex).setEnabled(true);
     }
@@ -99,12 +103,12 @@ public class TakeOutFragment extends Fragment{
         View view;
         ViewGroup.LayoutParams params;
         for (int i = 0; i < bannerImages.length; i++) {
-            // ÉèÖÃ¹ã¸æÍ¼
+            // ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½Í?
             ImageView imageView = new ImageView(activity);
             imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             imageView.setBackgroundResource(bannerImages[i]);
             mlist.add(imageView);
-            // ÉèÖÃÔ²È¦µã
+            // ï¿½ï¿½ï¿½ï¿½Ô²È¦ï¿½ï¿½
             view = new View(activity);
             params = new ViewGroup.LayoutParams(5, 5);
 //            params.leftMargin = 10;
@@ -118,7 +122,7 @@ public class TakeOutFragment extends Fragment{
         mViewPager.setAdapter(mAdapter);
     }
 
-    //ÊµÏÖVierPager¼àÌýÆ÷½Ó¿Ú
+    //Êµï¿½ï¿½VierPagerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
     class BannerListener implements ViewPager.OnPageChangeListener {
 
         @Override
@@ -135,7 +139,7 @@ public class TakeOutFragment extends Fragment{
 //            mTextView.setText(bannerTexts[newPosition]);
             mLinearLayout.getChildAt(newPosition).setEnabled(true);
             mLinearLayout.getChildAt(pointIndex).setEnabled(false);
-            // ¸üÐÂ±êÖ¾Î»
+            // ï¿½ï¿½ï¿½Â±ï¿½Ö¾Î»
             pointIndex = newPosition;
 
         }
@@ -144,7 +148,7 @@ public class TakeOutFragment extends Fragment{
 
     @Override
     public void onDestroy() {
-        // ¹Ø±Õ¶¨Ê±Æ÷
+        // ï¿½Ø±Õ¶ï¿½Ê±ï¿½ï¿½
         isStop = true;
         super.onDestroy();
     }

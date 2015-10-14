@@ -25,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.shit.orderdinner.R;
 import com.shit.orderdinner.common.Constants;
 import com.shit.orderdinner.common.HttpClient;
+import com.shit.orderdinner.widget.LoadingDialog;
 
 import org.json.JSONObject;
 import org.w3c.dom.Text;
@@ -65,6 +66,8 @@ public class UserLoginActivity extends Activity{
     private TextView text_qq_login;
     // 微博登录
     private TextView text_weibo_login;
+    // LoadingDialog
+    private LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,11 +179,14 @@ public class UserLoginActivity extends Activity{
                         + Constants.PARAM_USER_IDENTITY + "=" + user_identity + "&"
                         + Constants.PARAM_USER_PWD + "=" + user_pwd;
 
+                // 显示loadingDialog
+                loadingDialog = LoadingDialog.createDialog(activity).setMessage("登录中，请稍候......").start();
                 HttpClient.init(activity);
                 HttpClient.doPostRequest(url, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject jsonObject) {
                         Log.i(TAG, "请求结果：" + jsonObject.toString());
+                        loadingDialog.stop();
                     }
                 });
             }
