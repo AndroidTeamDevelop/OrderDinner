@@ -1,20 +1,17 @@
 package com.shit.orderdinner.adapter;
 
+import java.util.List;
+
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
-
-/**
- * Created by EX-BAIXUE600 on 2015/9/18.
- */
 public class BannerAdapter extends PagerAdapter {
-    private ArrayList<ImageView> viewlist;
+    private List<ImageView> mList;
 
-    public BannerAdapter(ArrayList<ImageView> viewlist) {
-        this.viewlist = viewlist;
+    public BannerAdapter(List<ImageView> viewlist) {
+        this.mList = viewlist;
     }
 
     @Override
@@ -23,18 +20,19 @@ public class BannerAdapter extends PagerAdapter {
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view == object;
+    public boolean isViewFromObject(View arg0, Object arg1) {
+        return arg0 == arg1;
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        container.addView(viewlist.get(position%viewlist.size()));
-        return viewlist.get(position%viewlist.size());
+        container.addView(mList.get(position % mList.size()));
+        return mList.get(position % mList.size());
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView(viewlist.get(position%viewlist.size()));
+        container.removeView(mList.get(position%mList.size()));
     }
+
 }

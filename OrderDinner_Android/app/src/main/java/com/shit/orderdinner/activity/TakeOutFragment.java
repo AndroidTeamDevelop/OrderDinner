@@ -1,36 +1,39 @@
 package com.shit.orderdinner.activity;
 
+
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
+import android.view.ViewGroup.LayoutParams;
 import com.shit.orderdinner.R;
 import com.shit.orderdinner.adapter.BannerAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by LUXIN on 2015/9/17.
  */
-public class TakeOutFragment extends Fragment{
+public class TakeOutFragment extends Fragment {
 
     private FragmentActivity activity;
     private ViewPager mViewPager;
-    private ArrayList<ImageView> mlist;
-    LinearLayout mLinearLayout;
-    // 广告图素材
-    private int[] bannerImages = { R.drawable.welcome02, R.drawable.welcome03, R.drawable.weixin_iner_icon };
-    // 圆圈标志位
-    private int pointIndex = 0;
-    // 线程标志
-    private boolean isStop = false;
-    // ViewPager适配器与监听器
+    private List<ImageView> mlist;
+    private LinearLayout mLinearLayout;
+    private int[] bannerImages = { R.drawable.kad, R.drawable.kadang,
+            R.drawable.launch_image, R.drawable.saa };
     private BannerAdapter mAdapter;
     private BannerListener bannerListener;
+    private int pointIndex = 0;
+    private boolean isStop = false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,33 +47,20 @@ public class TakeOutFragment extends Fragment{
         mViewPager = (ViewPager) contentView.findViewById(R.id.ad);
         mLinearLayout = (LinearLayout) contentView.findViewById(R.id.points);
 
-//        LayoutInflater inflater2 = LayoutInflater.from(activity);
-//        ImageView view1 = (ImageView) inflater2.inflate(R.layout.take_out_ad_item, null);
-//        ImageView view2 = (ImageView) inflater2.inflate(R.layout.take_out_ad_item, null);
-//        ImageView view3 = (ImageView) inflater2.inflate(R.layout.take_out_ad_item, null);
-//        view1.setImageResource(R.drawable.welcome02);
-//        view2.setImageResource(R.drawable.welcome03);
-//        view3.setImageResource(R.drawable.weixin_iner_icon);
-//        ArrayList<ImageView> views = new ArrayList<ImageView>();
-//        views.add(view1);
-//        views.add(view2);
-//        views.add(view3);
-//        viewPager.setAdapter(new BannerAdapter(views));
-
-        initTime();
         initData();
         initAction();
+        initTime();
         return contentView;
     }
 
     private void initTime() {
-        // 开启新线程，2秒一次更新Banner
+        // 开启新线程，4秒一次更新Banner
         new Thread(new Runnable() {
 
             @Override
             public void run() {
                 while (!isStop) {
-                    SystemClock.sleep(2000);
+                    SystemClock.sleep(4000);
                     activity.runOnUiThread(new Runnable() {
 
                         @Override
@@ -86,9 +76,10 @@ public class TakeOutFragment extends Fragment{
     private void initAction() {
         bannerListener = new BannerListener();
         mViewPager.setOnPageChangeListener(bannerListener);
-        //取中间数来作为起始位置
-        int index = (Integer.MAX_VALUE / 2) - (Integer.MAX_VALUE / 2 % mlist.size());
-        //用来出发监听器
+        // 取中间数来作为起始位置
+        int index = (Integer.MAX_VALUE / 2)
+                - (Integer.MAX_VALUE / 2 % mlist.size());
+        // 用来触发监听器
         mViewPager.setCurrentItem(index);
         mLinearLayout.getChildAt(pointIndex).setEnabled(true);
     }
@@ -97,17 +88,17 @@ public class TakeOutFragment extends Fragment{
     private void initData() {
         mlist = new ArrayList<ImageView>();
         View view;
-        ViewGroup.LayoutParams params;
+        LayoutParams params;
         for (int i = 0; i < bannerImages.length; i++) {
             // 设置广告图
             ImageView imageView = new ImageView(activity);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            imageView.setLayoutParams(new LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
             imageView.setBackgroundResource(bannerImages[i]);
             mlist.add(imageView);
             // 设置圆圈点
             view = new View(activity);
-            params = new ViewGroup.LayoutParams(5, 5);
-//            params.leftMargin = 10;
+            params = new LayoutParams(25, 25);
             view.setBackgroundResource(R.drawable.point_selecte);
             view.setLayoutParams(params);
             view.setEnabled(false);
@@ -120,7 +111,6 @@ public class TakeOutFragment extends Fragment{
 
     //实现VierPager监听器接口
     class BannerListener implements ViewPager.OnPageChangeListener {
-
         @Override
         public void onPageScrollStateChanged(int arg0) {
         }
@@ -132,14 +122,11 @@ public class TakeOutFragment extends Fragment{
         @Override
         public void onPageSelected(int position) {
             int newPosition = position % bannerImages.length;
-//            mTextView.setText(bannerTexts[newPosition]);
             mLinearLayout.getChildAt(newPosition).setEnabled(true);
             mLinearLayout.getChildAt(pointIndex).setEnabled(false);
             // 更新标志位
             pointIndex = newPosition;
-
         }
-
     }
 
     @Override
